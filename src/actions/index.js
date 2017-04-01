@@ -4,9 +4,10 @@ export const COUNT_CARD = "COUNT_CARD"
 export const SET_RULES_TAB = "SET_RULES_TAB"
 
 
-export const addRule = (id) => ({
+export const addRule = (id, text) => ({
     type: "ADD_RULE",
-    id
+    id,
+    text
 })
 
 export const removeRule = (id) => ({
@@ -19,7 +20,7 @@ export const countCard = (id) => ({
     id
 })
 
-export const setRulesTab = (id) => ({
+export const setRulesTab = (card) => ({
     type: "SET_RULES_TAB",
-    id
+    card
 })
