@@ -1,11 +1,13 @@
 import { ADD_RULE, REMOVE_RULE, COUNT_CARD, SET_RULE_TAB } from '../actions'
 
-const initialState = {
-    id: 0,
-    text: ' ',
-    completed: false,
-    count: 0
-}
+const initialState = [
+        {
+        id: 0,
+        text: 'Fork',
+        completed: false,
+        count: 0
+    }
+]
 
 export default function generator(state = initialState, action) {
     switch(action.type) {
@@ -17,7 +19,8 @@ export default function generator(state = initialState, action) {
                     ), -1) + 1,
                     text: action.text,
                     completed: false
-                }
+                },
+                ...state
             ]
         case REMOVE_RULE:
             return state.filter(item => item.id !== action.id )

@@ -4,9 +4,8 @@ export const COUNT_CARD = "COUNT_CARD"
 export const SET_RULES_TAB = "SET_RULES_TAB"
 
 
-export const addRule = (id, text) => ({
+export const addRule = (text) => ({
     type: "ADD_RULE",
-    id,
     text
 })
 

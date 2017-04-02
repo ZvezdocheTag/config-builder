@@ -17,7 +17,12 @@
 .App-intro {
   font-size: large;
 }
-
+footer {
+  width: 100%;
+  padding: 40px;
+  background-color: #434343;
+  color: #fff;
+}
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
