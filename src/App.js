@@ -21,7 +21,7 @@ import './App.css'
   }
 }*/
 const App = ({generator, actions}) => {
-
+  
   return (
         <div className="App" >
         <div className="App-header" >
@@ -36,7 +36,7 @@ const App = ({generator, actions}) => {
 }
 
 const mapStateToProps = state => ({
-  todos: state.generator
+  generator: state.generator
 })
 
 const mapDispatchToProps = dispatch => ({

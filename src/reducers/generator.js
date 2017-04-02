@@ -12,6 +12,7 @@ const initialState = [
 export default function generator(state = initialState, action) {
     switch(action.type) {
         case ADD_RULE:
+            console.log(action)
             return [
                 {
                     id: state.reduce((maxId, todo) => (
