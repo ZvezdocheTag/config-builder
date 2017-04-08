@@ -39,7 +39,7 @@ class Content extends Component {
         super();
         this.state = {
             gists: null,
-            text: this.text || ' Hello '
+            text: []
         }
         // EVENT SHOULD BE BINDING IN CONSTRUCTOR
         this.handlerS = this.handlerS.bind(this)
@@ -47,10 +47,21 @@ class Content extends Component {
 
 
     handlerS(e) {
+        let arr = this.state.gists;
 
-        for(let key in this.state.gists) {
-            console.log(this.state.gists[key])
-        }
+        let res = arr.map((item, i) => {
+            let index = item.indexOf(':');
+            if(index !== -1) {
+                item = item.slice(0, index);
+                return item;
+            }
+            return item;
+        })
+
+        this.setState({
+            text: res
+        })
+
 
     }
     componentDidMount() {
@@ -68,17 +79,26 @@ class Content extends Component {
         })
         .then(gists => {
             let cut = gists.match(/{([^}]*)}/gi)[0];
-            console.log(cut.slice(1, cut.length -1 ).split(','))
-            this.setState({ gists })
+            cut = cut.slice(1, cut.length -1 ).split(',');
+            // console.log(cut)
+            this.setState({ gists: cut })
         })
     }
     render() {
         const st = this.state;
-        console.log(this.state)
+        // console.log(this.state)
         return (
             <div className="main-content">
                 <button onClick={ this.handlerS }>  CLICK  </button>
-                <p> {this.state.text }</p>
+                <ul>
+                        {
+                    this.state.text.map((item, i) => {
+                        return (
+                            <li key={i}>{item}</li>
+                        )
+                    })
+                }
+                </ul>
                 <Container /> 
                 <Aside />
             </div>
