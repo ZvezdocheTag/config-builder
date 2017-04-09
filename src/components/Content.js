@@ -27,9 +27,26 @@ const Container = () => {
     )
 }
 
-const Card = () => {
+const Card = (props) => {
+    // let item = props.value
+    let data = props.data;
+    let value;
+
+    if(data.hasOwnProperty('value')) {
+            value = data.value
+
+    } else {
+        value = ["No result"]
+    }
     return (
-        <div className="card"></div>
+        <div className="card" key={data.id}>
+            <div className="card__count">{data.id}</div>
+            <div className="card__name">{data.name}</div>
+            <ul>
+   
+                { typeof value !== 'string' ? value.map((item, i) => <li key={i}>{item}</li>) : value  }
+            </ul>
+        </div>
     )
 }
 
@@ -39,29 +56,43 @@ class Content extends Component {
         super();
         this.state = {
             gists: null,
-            text: []
+            text: [],
+            currentCard: 0
         }
         // EVENT SHOULD BE BINDING IN CONSTRUCTOR
         this.handlerS = this.handlerS.bind(this)
     }
 
-
-    handlerS(e) {
-        let arr = this.state.gists;
-
+    cuts(arr) {
         let res = arr.map((item, i) => {
             let index = item.indexOf(':');
+            let rule;
+            let value;
+            let obj = {};
+            // console.log(item)
             if(index !== -1) {
-                item = item.slice(0, index);
-                return item;
+                rule = item.slice(0, index).trim();
+                value = item.slice(index + 1, item.length).trim();
+                
+                if(value.indexOf('|') !== -1) {
+                    value = value.split('|');
+                }
+                obj['name'] = rule;
+                obj['value'] = value;
+                obj['id'] = i;
+                 
+                return obj;
             }
             return item;
         })
 
-        this.setState({
-            text: res
-        })
+        return res;
+    } 
 
+    handlerS(e) {
+        this.setState({
+            currentCard: this.state.currentCard + 1
+        })
 
     }
     componentDidMount() {
@@ -73,31 +104,32 @@ class Content extends Component {
             mode: 'cors',
             cache: 'default'
         }
-        fetch('https://raw.githubusercontent.com/stylelint/stylelint/9c7c38a7785fbfeb96fff1f75b68b5babb960847/lib/rules/index.js', myInit)
+        // fetch('https://raw.githubusercontent.com/stylelint/stylelint/9c7c38a7785fbfeb96fff1f75b68b5babb960847/lib/rules/index.js', myInit)
+        fetch('https://raw.githubusercontent.com/stylelint/stylelint/9c7c38a7785fbfeb96fff1f75b68b5babb960847/docs/user-guide/example-config.md', myInit)
         .then(res => {
             return res.text();
         })
         .then(gists => {
-            let cut = gists.match(/{([^}]*)}/gi)[0];
-            cut = cut.slice(1, cut.length -1 ).split(',');
-            // console.log(cut)
-            this.setState({ gists: cut })
+            let cut = gists.match(/{([^]*)}/gi)[0];
+            let start = '"rules":';
+            let startcut = cut.indexOf(start) + start.length
+            cut = cut.slice(startcut, cut.length -1 ).split(',');
+            cut = cut.slice(1, cut.length - 1)
+
+            this.setState({ text: this.cuts(cut) })
         })
+
+
     }
     render() {
         const st = this.state;
-        // console.log(this.state)
+        const data = st.text.length ? st.text : [{ name: "DATA DONT LOAD"}]
+
         return (
             <div className="main-content">
                 <button onClick={ this.handlerS }>  CLICK  </button>
                 <ul>
-                        {
-                    this.state.text.map((item, i) => {
-                        return (
-                            <li key={i}>{item}</li>
-                        )
-                    })
-                }
+                    <Card data={data[st.currentCard]}></Card>
                 </ul>
                 <Container /> 
                 <Aside />
@@ -111,3 +143,4 @@ Content.propTypes = {
 };
 
 export default Content;
+
