@@ -38,13 +38,18 @@ const Card = (props) => {
     } else {
         value = ["No result"]
     }
+
+    let handleClick = (e) => {
+        console.log(props)
+
+    }
     return (
         <div className="card" key={data.id}>
             <div className="card__count">{data.id}</div>
             <div className="card__name">{data.name}</div>
             <ul>
    
-                { typeof value !== 'string' ? value.map((item, i) => <li key={i}>{item}</li>) : value  }
+                { typeof value !== 'string' ? value.map((item, i) => <li key={i} onClick={props.pro}>{item}</li>) : <li onClick={props.pro}>{ value }</li>  }
             </ul>
         </div>
     )
@@ -57,7 +62,10 @@ class Content extends Component {
         this.state = {
             gists: null,
             text: [],
-            currentCard: 0
+            currentCard: 0,
+            plus: function() {
+               
+            }
         }
         // EVENT SHOULD BE BINDING IN CONSTRUCTOR
         this.handlerS = this.handlerS.bind(this)
@@ -90,6 +98,7 @@ class Content extends Component {
     } 
 
     handlerS(e) {
+        console.log(e.target)
         this.setState({
             currentCard: this.state.currentCard + 1
         })
@@ -122,6 +131,8 @@ class Content extends Component {
 
     }
     render() {
+        console.log(this)
+        const func = this.handlerS
         const st = this.state;
         const data = st.text.length ? st.text : [{ name: "DATA DONT LOAD"}]
 
@@ -129,9 +140,11 @@ class Content extends Component {
             <div className="main-content">
                 <button onClick={ this.handlerS }>  CLICK  </button>
                 <ul>
-                    <Card data={data[st.currentCard]}></Card>
+                    <Card data={data[st.currentCard]} pro={ func }></Card>
                 </ul>
-                <Container /> 
+                {/*<Container> 
+                    
+                </Container> */}
                 <Aside />
             </div>
         );
