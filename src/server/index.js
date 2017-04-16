@@ -18,6 +18,10 @@ const cheerio = require("cheerio");
 
 let ds;
 
+const rules = require('./rules');
+
+console.log(typeof rules)
+
 
 // request('https://raw.githubusercontent.com/stylelint/stylelint/master/lib/rules/at-rule-empty-line-before/README.md', function (error, response, body) {
 
@@ -28,10 +32,9 @@ let ds;
 let fi = {
     uri: 'https://raw.githubusercontent.com/stylelint/stylelint/master/lib/rules/at-rule-empty-line-before/README.md'
 }
-let urls = [
-    'https://raw.githubusercontent.com/stylelint/stylelint/master/lib/rules/at-rule-empty-line-before/README.md',
-    'https://raw.githubusercontent.com/stylelint/stylelint/master/lib/rules/at-rule-name-case/README.md'
-]
+let urls = rules.map((item, i) => {
+    return `https://raw.githubusercontent.com/stylelint/stylelint/master/lib/rules/${item}/README.md`
+})
 
 // rp(fi)
 //     .then(function (htmlString) {
@@ -55,27 +58,39 @@ Promise.all(urls.map(url => new Promise((resolve, reject)=>{
 function (htmlString) {
 
 
+
         let result = htmlString.map((item, i) => {
           let intoHTML = converter.makeHtml(item);
           const $ = cheerio.load(intoHTML);
           let option = $('#options').next('p').find('code').last().text();
-          let container = $('body').append(`<div class="logger item-${i}"></div>`);
           let name = $('h1');
           let sorrow = '';
-
+          let countRuleOne = 0;
+          let countRuleTwo = 0;
                 if(option.indexOf('|') !== -1) {
                     option = option.split('|');
                     
                     for(let j = 0;option.length > j; j+=1 ) {
-                      
-                        let trim = option[j].slice(1, option[j].length - 1)
-                        let neop = '#' + trim;
+                        if(option[j].indexOf('[') === -1 ) {
+                            if(option[j].indexOf('/regex/') === -1) {
+                            let trim = option[j].slice(1, option[j].length - 1)
+                            let neop = '#' + trim;
+                            
+                            sorrow += $(neop) + $(neop).nextUntil('h3').find('code')
+                            } else {
+                                // console.log(option[j], '1')
+                                countRuleOne += 1
+                            }
+
+                        } else {
+                            //array ar not prepare yet 
+                            // console.log(option[j], '2')
+                            countRuleTwo += 1
+                        }
                         
-                         sorrow += $(neop) + $(neop).nextUntil('h3').find('code')
-                        //  dataRender($(neop).nextUntil('h3').find('code'))
-                        // console.log(typeof $(neop).nextUntil('h3'))
                     }
                 }
+                console.log(countRuleOne, countRuleTwo)
                let endpoint = name + sorrow;
                 
                 
