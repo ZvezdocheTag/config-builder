@@ -58,7 +58,7 @@ Promise.all(urls.map(url => new Promise((resolve, reject)=>{
 function (htmlString) {
 
 
-
+        // TODO  condition to item wich have one rule
         let result = htmlString.map((item, i) => {
           let intoHTML = converter.makeHtml(item);
           const $ = cheerio.load(intoHTML);
