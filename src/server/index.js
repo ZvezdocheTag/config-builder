@@ -1,4 +1,4 @@
-var showdown  = require('showdown'),
+const showdown  = require('showdown'),
     converter = new showdown.Converter(),
     text      = '#hello, markdown!',
     html      = converter.makeHtml(text);
@@ -12,8 +12,9 @@ const port = '3005'
 const fs = require('fs');
 const url = require('url');
 const request = require('request');
-var rp = require('request-promise');
+const rp = require('request-promise');
 
+const cheerio = require("cheerio");
 
 let ds;
 
@@ -52,15 +53,43 @@ Promise.all(urls.map(url => new Promise((resolve, reject)=>{
     });
 }))).then(
 function (htmlString) {
-        let concat = htmlString.join(' ')
-        console.log(concat)
-          let intoHTML = converter.makeHtml(concat);
-          dataRender(intoHTML)
+
+
+        let result = htmlString.map((item, i) => {
+          let intoHTML = converter.makeHtml(item);
+          const $ = cheerio.load(intoHTML);
+          let option = $('#options').next('p').find('code').last().text();
+          let container = $('body').append(`<div class="logger item-${i}"></div>`);
+          let name = $('h1');
+          let sorrow = '';
+
+                if(option.indexOf('|') !== -1) {
+                    option = option.split('|');
+                    
+                    for(let j = 0;option.length > j; j+=1 ) {
+                      
+                        let trim = option[j].slice(1, option[j].length - 1)
+                        let neop = '#' + trim;
+                        
+                         sorrow += $(neop) + $(neop).nextUntil('h3').find('code')
+                        //  dataRender($(neop).nextUntil('h3').find('code'))
+                        // console.log(typeof $(neop).nextUntil('h3'))
+                    }
+                }
+               let endpoint = name + sorrow;
+                
+                
+                return endpoint;
+        })
+
+         dataRender(result)
+
     }
 
 ).catch((err) => {
     console.log(err)
 });
+
 
 
 function dataRender(data) {
@@ -75,19 +104,20 @@ function dataRender(data) {
         <title>Document</title>
     </head>
     <body>
-        <h1>Hello my frien dasd</h1>
-        <p>
         ${data}
-        </p>
     </body>
     </html>
     `
-    
+
     fs.appendFile('message.html', page, (err) => {
         if (err) throw err;
         console.log('The "data to append" was appended to file!');
     });
+    
+
 }
+
+
 // process.stdout.write(ds);
 // console.log(ds)
 //Create file with our data
