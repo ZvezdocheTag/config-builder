@@ -67,37 +67,106 @@ function (htmlString) {
           let sorrow = '';
           let countRuleOne = 0;
           let countRuleTwo = 0;
+          
                 if(option.indexOf('|') !== -1) {
                     option = option.split('|');
                     
                     for(let j = 0;option.length > j; j+=1 ) {
                         if(option[j].indexOf('[') === -1 ) {
+                           
                             if(option[j].indexOf('/regex/') === -1) {
                             let trim = option[j].slice(1, option[j].length - 1)
                             let neop = '#' + trim;
-                            
+                       
                             sorrow += $(neop) + $(neop).nextUntil('h3').find('code')
-                            } else {
-                                // console.log(option[j], '1')
+                            // console.log(' ' + $(neop).nextUntil('h3').find('code'))
+
+                        } else {
                                 countRuleOne += 1
                             }
 
                         } else {
+                            let trim = option[j].slice(1, option[j].length - 1)
+                            let neop = '#' + trim;
+        
+                             sorrow += `<h3 id=${neop[0] + j}>${option[j]}</h3>`
                             //array ar not prepare yet 
                             // console.log(option[j], '2')
                             countRuleTwo += 1
                         }
                         
-                    }
+                    } 
                 }
-                console.log(countRuleOne, countRuleTwo)
+                // console.log(countRuleOne, countRuleTwo)
                let endpoint = name + sorrow;
                 
                 
                 return endpoint;
         })
+ 
 
-         dataRender(result)
+        let resultJs =htmlString.map((item, i) => {
+          let intoHTML = converter.makeHtml(item);
+          const $ = cheerio.load(intoHTML);
+          let option = $('#options').next('p').find('code').last().text();
+          let name = $('h1').text();
+          let sorrow = '';
+          let countRuleOne = 0;
+          let countRuleTwo = 0;
+          let sub = '';
+          let rules = []
+          
+                if(option.indexOf('|') !== -1) {
+
+                    option = option.split('|');
+                    // console.log(option)
+                    sub = option
+                    for(let j = 0;option.length > j; j+=1 ) {
+                        if(option[j].indexOf('[') === -1 ) {
+                           
+                            if(option[j].indexOf('/regex/') === -1) {
+                            let trim = option[j].slice(1, option[j].length - 1)
+                            let neop = '#' + trim;
+                            
+                            sorrow += $(neop).nextUntil('h3').find('code')
+                            rules.push({
+                                title: neop,
+                                code: $(neop).nextUntil('h3').find('code').text()
+                            })
+                            // console.log(neop + ' TITLE ' + j)
+                            // console.log($(neop).nextUntil('h3').find('code').text())
+                            // console.log(' ' + $(neop).nextUntil('h3').find('code'))
+
+                        } else {
+                                countRuleOne += 1
+                            }
+
+                        } else {
+                            let trim = option[j].slice(1, option[j].length - 1)
+                            let neop = '#' + trim;
+        
+                             sorrow += `<h3 id=${neop[0] + j}>${option[j]}</h3>`
+                            //array ar not prepare yet 
+                            // console.log(option[j], '2')
+                            countRuleTwo += 1
+                        }
+                        
+                    } 
+                }
+                // console.log(countRuleOne, countRuleTwo)
+
+               let endpoint =  {
+                   name: '' + name,
+                   sub: sub,
+                   code: rules
+               }
+                //    console.log(endpoint)
+                return endpoint;
+        })
+
+// console.log(resultJs)
+// dataRenderJs(resultJs) 
+        //  dataRender(result)
 
     }
 
@@ -129,9 +198,18 @@ function dataRender(data) {
         console.log('The "data to append" was appended to file!');
     });
     
-
 }
 
+function dataRenderJs(data) {
+    const page = JSON.stringify(data);
+
+    fs.appendFile('message.json', page, (err) => {
+        if (err) throw err;
+        console.log('The "data to append" was appended to file!');
+    });
+    
+
+}
 
 // process.stdout.write(ds);
 // console.log(ds)

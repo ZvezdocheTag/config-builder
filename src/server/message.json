@@ -1,0 +1,1463 @@
+[{
+    "name": "at-rule-blacklist",
+    "sub": ["[\"array\", \"of\", \"unprefixed\", \"at-rules\"]", "\"at-rule\""],
+    "code": [{
+        "title": "#at-rule",
+        "code": ""
+    }]
+}, {
+    "name": "at-rule-empty-line-before",
+    "sub": ["\"always\"", "\"never\""],
+    "code": [{
+        "title": "#always",
+        "code": "a {} @media {}\na {}\n@media {}\na {}\n\n@media {}\n"
+    }, {
+        "title": "#never",
+        "code": "a {}\n\n@media {}\na {} @media {}\na {}\n@media {}\n"
+    }]
+}, {
+    "name": "at-rule-name-case",
+    "sub": ["\"lower\"", "\"upper\""],
+    "code": [{
+        "title": "#lower",
+        "code": "@Charset 'UTF-8';\n@cHarSeT 'UTF-8';\n@CHARSET 'UTF-8';\n@Media (min-width: 50em) {}\n@mEdIa (min-width: 50em) {}\n@MEDIA (min-width: 50em) {}\n@charset 'UTF-8';\n@media (min-width: 50em) {}\n"
+    }, {
+        "title": "#upper",
+        "code": "@Charset 'UTF-8';\n@cHarSeT 'UTF-8';\n@charset 'UTF-8';\n@Media (min-width: 50em) {}\n@mEdIa (min-width: 50em) {}\n@media (min-width: 50em) {}\n@CHARSET 'UTF-8';\n@MEDIA (min-width: 50em) {}\n"
+    }]
+}, {
+    "name": "at-rule-name-newline-after",
+    "sub": ["\"always\"", "\"always-multi-line\""],
+    "code": [{
+        "title": "#always",
+        "code": "@charset \"UTF-8\";\n@media (min-width: 700px) and\n  (orientation: landscape) {}\n@charset\n  \"UTF-8\";\n@import\n  \"x.css\" screen and\n (orientation:landscape);\n@media\n  (min-width: 700px) and (orientation: landscape) {}\n@media\n  (min-width: 700px) and\n  (orientation: landscape) {}\n"
+    }, {
+        "title": "#always-multi-line",
+        "code": ""
+    }]
+}, {
+    "name": "at-rule-semicolon-space-before",
+    "sub": ["\"always\"", "\"never\""],
+    "code": [{
+        "title": "#always",
+        "code": "@import \"components/buttons\";\n@import \"components/buttons\" ;\n"
+    }, {
+        "title": "#never",
+        "code": "@import \"components/buttons\" ;\n@import \"components/buttons\";\n"
+    }]
+}, {
+    "name": "at-rule-name-space-after",
+    "sub": ["\"always\"", "\"always-single-line\""],
+    "code": [{
+        "title": "#always",
+        "code": "@charset\"UTF-8\";\n@media(min-width: 700px) {}\n@media  (min-width: 700px) {}\n@media \n(min-width: 700px) {}\n@charset \"UTF-8\";\n@import url(\"x.css\");\n@media (min-width: 700px) {}\n"
+    }, {
+        "title": "#always-single-line",
+        "code": ""
+    }]
+}, {
+    "name": "at-rule-no-unknown",
+    "sub": "",
+    "code": []
+}, {
+    "name": "at-rule-no-vendor-prefix",
+    "sub": "",
+    "code": []
+}, {
+    "name": "at-rule-semicolon-newline-after",
+    "sub": "",
+    "code": []
+}, {
+    "name": "at-rule-whitelist",
+    "sub": ["[\"array\", \"of\", \"unprefixed\", \"at-rules\"]", "\"at-rule\""],
+    "code": [{
+        "title": "#at-rule",
+        "code": ""
+    }]
+}, {
+    "name": "block-closing-brace-empty-line-before",
+    "sub": ["\"always-multi-line\"", "\"never\""],
+    "code": [{
+        "title": "#always-multi-line",
+        "code": ""
+    }, {
+        "title": "#never",
+        "code": "a {\n  color: pink;\n\n}\na {\n  color: pink;\n}\na { color: pink; }\n"
+    }]
+}, {
+    "name": "block-closing-brace-newline-after",
+    "sub": ["\"always\"", "\"always-single-line\"", "\"never-single-line\"", "\"always-multi-line\"", "\"never-multi-line\""],
+    "code": [{
+        "title": "#always",
+        "code": "a { color: pink; }b { color: red; }\na { color: pink;\n} b { color: red; }\na { color: pink; }\nb { color: red; }\n"
+    }, {
+        "title": "#always-single-line",
+        "code": ""
+    }, {
+        "title": "#never-single-line",
+        "code": ""
+    }, {
+        "title": "#always-multi-line",
+        "code": ""
+    }, {
+        "title": "#never-multi-line",
+        "code": ""
+    }]
+}, {
+    "name": "block-closing-brace-newline-before",
+    "sub": ["\"always\"", "\"always-multi-line\"", "\"never-multi-line\""],
+    "code": [{
+        "title": "#always",
+        "code": "a { color: pink;}\na { color: pink;\n}\na {\ncolor: pink;\n}\n"
+    }, {
+        "title": "#always-multi-line",
+        "code": ""
+    }, {
+        "title": "#never-multi-line",
+        "code": ""
+    }]
+}, {
+    "name": "block-closing-brace-space-after",
+    "sub": ["\"always\"", "\"never\"", "\"always-single-line\"", "\"never-single-line\"", "\"always-multi-line\"", "\"never-multi-line\""],
+    "code": [{
+        "title": "#always",
+        "code": "a { color: pink; }b { color: red; }\na { color: pink; }\nb { color: red; }\na { color: pink; } b { color: red; }\n"
+    }, {
+        "title": "#never",
+        "code": "a { color: pink; } b { color: red; }\na { color: pink; }\nb { color: red; }\na { color: pink; }b { color: red; }\na { color: pink;\n}b { color: red; }\n"
+    }, {
+        "title": "#always-single-line",
+        "code": ""
+    }, {
+        "title": "#never-single-line",
+        "code": ""
+    }, {
+        "title": "#always-multi-line",
+        "code": ""
+    }, {
+        "title": "#never-multi-line",
+        "code": ""
+    }]
+}, {
+    "name": "block-closing-brace-space-before",
+    "sub": ["\"always\"", "\"never\"", "\"always-single-line\"", "\"never-single-line\"", "\"always-multi-line\"", "\"never-multi-line\""],
+    "code": [{
+        "title": "#always",
+        "code": "a { color: pink;}\na\n{ color: pink;}\na { color: pink; }\na {\ncolor: pink; }\n"
+    }, {
+        "title": "#never",
+        "code": "a { color: pink; }\na\n{ color: pink; }\na{ color: pink;}\na{\ncolor: pink;}\n"
+    }, {
+        "title": "#always-single-line",
+        "code": ""
+    }, {
+        "title": "#never-single-line",
+        "code": ""
+    }, {
+        "title": "#always-multi-line",
+        "code": ""
+    }, {
+        "title": "#never-multi-line",
+        "code": ""
+    }]
+}, {
+    "name": "block-no-empty",
+    "sub": "",
+    "code": []
+}, {
+    "name": "block-no-single-line",
+    "sub": "",
+    "code": []
+}, {
+    "name": "block-opening-brace-newline-after",
+    "sub": ["\"always\"", "\"always-multi-line\"", "\"never-multi-line\""],
+    "code": [{
+        "title": "#always",
+        "code": "a{ color: pink; }\na{ color: pink;\n}\na{ /* end-of-line comment\n  with a newline */\n  color: pink;\n}\na {\ncolor: pink; }\na\n{\ncolor: pink; }\na { /* end-of-line comment */\n  color: pink;\n}\n"
+    }, {
+        "title": "#always-multi-line",
+        "code": ""
+    }, {
+        "title": "#never-multi-line",
+        "code": ""
+    }]
+}, {
+    "name": "block-opening-brace-newline-before",
+    "sub": ["\"always\"", "\"always-single-line\"", "\"never-single-line\"", "\"always-multi-line\"", "\"never-multi-line\""],
+    "code": [{
+        "title": "#always",
+        "code": "a{ color: pink; }\na{ color: pink;\n}\na\n{ color: pink; }\na\n{\ncolor: pink; }\na /* foo */\n  {\n    color: pink;\n  }\n"
+    }, {
+        "title": "#always-single-line",
+        "code": ""
+    }, {
+        "title": "#never-single-line",
+        "code": ""
+    }, {
+        "title": "#always-multi-line",
+        "code": ""
+    }, {
+        "title": "#never-multi-line",
+        "code": ""
+    }]
+}, {
+    "name": "block-opening-brace-space-after",
+    "sub": ["\"always\"", "\"never\"", "\"always-single-line\"", "\"never-single-line\"", "\"always-multi-line\"", "\"never-multi-line\""],
+    "code": [{
+        "title": "#always",
+        "code": "a {color: pink; }\na {\ncolor: pink; }\na { color: pink; }\na { color: pink;\n}\n"
+    }, {
+        "title": "#never",
+        "code": "a { color: pink; }\na {\ncolor: pink; }\na {color: pink; }\na\n{color: pink; }\n"
+    }, {
+        "title": "#always-single-line",
+        "code": ""
+    }, {
+        "title": "#never-single-line",
+        "code": ""
+    }, {
+        "title": "#always-multi-line",
+        "code": ""
+    }, {
+        "title": "#never-multi-line",
+        "code": ""
+    }]
+}, {
+    "name": "block-opening-brace-space-before",
+    "sub": ["\"always\"", "\"never\"", "\"always-single-line\"", "\"never-single-line\"", "\"always-multi-line\"", "\"never-multi-line\""],
+    "code": [{
+        "title": "#always",
+        "code": "a{ color: pink; }\na\n{ color: pink; }\na { color: pink; }\na {\ncolor: pink; }\n"
+    }, {
+        "title": "#never",
+        "code": "a { color: pink; }\na\n{ color: pink; }\na{ color: pink; }\na{\ncolor: pink; }\n"
+    }, {
+        "title": "#always-single-line",
+        "code": ""
+    }, {
+        "title": "#never-single-line",
+        "code": ""
+    }, {
+        "title": "#always-multi-line",
+        "code": ""
+    }, {
+        "title": "#never-multi-line",
+        "code": ""
+    }]
+}, {
+    "name": "color-hex-case",
+    "sub": ["\"lower\"", "\"upper\""],
+    "code": [{
+        "title": "#lower",
+        "code": "a { color: #FFF; }\na { color: #000; }\na { color: #fff; }\n"
+    }, {
+        "title": "#upper",
+        "code": "a { color: #fff; }\na { color: #000; }\na { color: #FFF; }\n"
+    }]
+}, {
+    "name": "color-hex-length",
+    "sub": ["\"short\"", "\"long\""],
+    "code": [{
+        "title": "#short",
+        "code": "a { color: #ffffff; }\na { color: #fffffaa; }\na { color: #fff; }\na { color: #fffa; }\na { color: #a4a4a4; }\n"
+    }, {
+        "title": "#long",
+        "code": "a { color: #fff; }\na { color: #fffa; }\na { color: #ffffff; }\na { color: #fffffaa; }\n"
+    }]
+}, {
+    "name": "color-named",
+    "sub": ["\"always-where-possible\"", "\"never\""],
+    "code": [{
+        "title": "#always-where-possible",
+        "code": ""
+    }, {
+        "title": "#never",
+        "code": "a { color: black; }\na { color: white; }\na { color: #000; }\na { color: rgb(0, 0, 0); }\na { color: var(--white); }\na { color: $blue; }\na { color: @blue; }\n"
+    }]
+}, {
+    "name": "color-no-hex",
+    "sub": "",
+    "code": []
+}, {
+    "name": "color-no-invalid-hex",
+    "sub": "",
+    "code": []
+}, {
+    "name": "comment-empty-line-before",
+    "sub": ["\"always\"", "\"never\""],
+    "code": [{
+        "title": "#always",
+        "code": "a {}\n/* comment */\na {}\n\n/* comment */\na {} /* comment */\n"
+    }, {
+        "title": "#never",
+        "code": "a {}\n\n/* comment */\na {}\n/* comment */\na {} /* comment */\n"
+    }]
+}, {
+    "name": "comment-no-empty",
+    "sub": "",
+    "code": []
+}, {
+    "name": "comment-whitespace-inside",
+    "sub": ["\"always\"", "\"never\""],
+    "code": [{
+        "title": "#always",
+        "code": "/*comment*/\n/*comment */\n/** comment**/\n/* comment */\n/** comment **/\n/**\n * comment\n */\n/*     comment\n*/\n"
+    }, {
+        "title": "#never",
+        "code": "/* comment */\n/*comment */\n/** comment**/\n/*comment*/\n/****comment****/\n"
+    }]
+}, {
+    "name": "comment-word-blacklist",
+    "sub": ["[\"array\", \"of\", \"words\", \"or\", \"/regex/\"]", "\"word\"", "\"/regex/\""],
+    "code": [{
+        "title": "#word",
+        "code": ""
+    }]
+}, {
+    "name": "custom-media-pattern",
+    "sub": ["regex", "string"],
+    "code": [{
+        "title": "#ege",
+        "code": ""
+    }, {
+        "title": "#trin",
+        "code": ""
+    }]
+}, {
+    "name": "custom-property-empty-line-before",
+    "sub": ["\"always\"", "\"never\""],
+    "code": [{
+        "title": "#always",
+        "code": "a {\n  top: 10px;\n  --foo: pink;\n  --bar: red;\n}\na {\n  top: 10px;\n\n  --foo: pink;\n\n  --bar: red;\n}\n"
+    }, {
+        "title": "#never",
+        "code": "a {\n  top: 10px;\n\n  --foo: pink;\n\n  --bar: red;\n}\na {\n\n  --foo: pink;\n  --bar: red;\n}\na {\n  top: 10px;\n  --foo: pink;\n  --bar: red;\n}\na {\n  --foo: pink;\n  --bar: red;\n}\n"
+    }]
+}, {
+    "name": "custom-property-no-outside-root",
+    "sub": "",
+    "code": []
+}, {
+    "name": "custom-property-pattern",
+    "sub": ["regex", "string"],
+    "code": [{
+        "title": "#ege",
+        "code": ""
+    }, {
+        "title": "#trin",
+        "code": ""
+    }]
+}, {
+    "name": "declaration-bang-space-after",
+    "sub": ["\"always\"", "\"never\""],
+    "code": [{
+        "title": "#always",
+        "code": "a { color: pink !important; }\na { color: pink      !important; }\na { color: pink ! important; }\na { color: pink! important; }\n"
+    }, {
+        "title": "#never",
+        "code": "a { color: pink ! important; }\na { color: pink! important; }\na { color: pink !important; }\na { color:pink!important; }\n"
+    }]
+}, {
+    "name": "declaration-bang-space-before",
+    "sub": ["\"always\"", "\"never\""],
+    "code": [{
+        "title": "#always",
+        "code": "a { color: pink!important; }\na { color: pink  ! important; }\na { color: pink !important; }\na { color:pink ! important; }\n"
+    }, {
+        "title": "#never",
+        "code": "a { color : pink !important; }\na { color: pink!important; }\na { color: pink! important; }\n"
+    }]
+}, {
+    "name": "declaration-block-no-duplicate-properties",
+    "sub": "",
+    "code": []
+}, {
+    "name": "declaration-block-no-ignored-properties",
+    "sub": "",
+    "code": []
+}, {
+    "name": "declaration-block-no-redundant-longhand-properties",
+    "sub": "",
+    "code": []
+}, {
+    "name": "declaration-block-no-shorthand-property-overrides",
+    "sub": "",
+    "code": []
+}, {
+    "name": "declaration-block-properties-order",
+    "sub": ["\"alphabetical\"", "[\"array\", \"of\", \"unprefixed\", \"property\", \"names\", \"or\", \"group\", \"objects\"]"],
+    "code": [{
+        "title": "#alphabetical",
+        "code": "a {\n  top: 0;\n  color: pink;\n}\na {\n  -moz-transform: scale(1);\n  transform: scale(1);\n  -webkit-transform: scale(1);\n}\na {\n  color: pink;\n  top: 0;\n}\na {\n  -moz-transform: scale(1);\n  -webkit-transform: scale(1);\n  transform: scale(1);\n}\n"
+    }]
+}, {
+    "name": "declaration-block-semicolon-newline-after",
+    "sub": ["\"always\"", "\"always-multi-line\"", "\"never-multi-line\""],
+    "code": [{
+        "title": "#always",
+        "code": "a { color: pink; top: 0; }\na {\n  color: pink; /* end-of-line comment\n    containing a newline */\n  top: 0;\n}\na {\n  color: pink;\n  top: 0;\n}\na {\n  color: pink; /* end-of-line comment */\n  top: 0;\n}\n"
+    }, {
+        "title": "#always-multi-line",
+        "code": ""
+    }, {
+        "title": "#never-multi-line",
+        "code": ""
+    }]
+}, {
+    "name": "declaration-block-semicolon-newline-before",
+    "sub": ["\"always\"", "\"always-multi-line\"", "\"never-multi-line\""],
+    "code": [{
+        "title": "#always",
+        "code": "a { color: pink; }\na {\n  color: pink; top: 0;\n}\na { color: pink\n; }\na {\n  color: pink\n  ; top: 0;\n}\n"
+    }, {
+        "title": "#always-multi-line",
+        "code": ""
+    }, {
+        "title": "#never-multi-line",
+        "code": ""
+    }]
+}, {
+    "name": "declaration-block-semicolon-space-after",
+    "sub": ["\"always\"", "\"never\"", "\"always-single-line\"", "\"never-single-line\""],
+    "code": [{
+        "title": "#always",
+        "code": "a { color: pink;top: 0; }\na {\n  color: pink;\n  top: 0;\n}\na { color: pink;}\na { color: pink; }\na { color: pink; top: 0; }\n"
+    }, {
+        "title": "#never",
+        "code": "a { color: pink; top: 0; }\na {\n  color: pink;\n  top: 0;\n}\na { color: pink;}\na { color: pink; }\na { color: pink;top: 0; }\n"
+    }, {
+        "title": "#always-single-line",
+        "code": ""
+    }, {
+        "title": "#never-single-line",
+        "code": ""
+    }]
+}, {
+    "name": "declaration-block-semicolon-space-before",
+    "sub": ["\"always\"", "\"never\"", "\"always-single-line\"", "\"never-single-line\""],
+    "code": [{
+        "title": "#always",
+        "code": "a { color: pink; }\na { color: pink; top: 0; }\na { color: pink ; }\na { color: pink ; top: 0 ; }\n"
+    }, {
+        "title": "#never",
+        "code": "a { color: pink ; }\na { color: pink ; top: 0 ; }\na { color: pink; }\na { color: pink; top: 0; }\n"
+    }, {
+        "title": "#always-single-line",
+        "code": ""
+    }, {
+        "title": "#never-single-line",
+        "code": ""
+    }]
+}, {
+    "name": "declaration-block-single-line-max-declarations",
+    "sub": "",
+    "code": []
+}, {
+    "name": "declaration-block-trailing-semicolon",
+    "sub": ["\"always\"", "\"never\""],
+    "code": [{
+        "title": "#always",
+        "code": "a { color: pink }\na { background: orange; color: pink }\na { @include foo }\na { color: pink; }\na { background: orange; color: pink; }\na { @include foo; }\n"
+    }, {
+        "title": "#never",
+        "code": "a { color: pink; }\na { background: orange; color: pink; }\na { color: pink }\na { background: orange; color: pink }\n"
+    }]
+}, {
+    "name": "declaration-colon-newline-after",
+    "sub": ["\"always\"", "\"always-multi-line\""],
+    "code": [{
+        "title": "#always",
+        "code": "a { color:pink; }\na { color: pink; }\na {\n  color:\n    pink;\n}\n"
+    }, {
+        "title": "#always-multi-line",
+        "code": ""
+    }]
+}, {
+    "name": "declaration-colon-space-after",
+    "sub": ["\"always\"", "\"never\"", "\"always-single-line\""],
+    "code": [{
+        "title": "#always",
+        "code": "a { color :pink }\na { color:pink }\na { color : pink }\na { color: pink }\n"
+    }, {
+        "title": "#never",
+        "code": "a { color:pink }\na { color :pink }\na { color :pink }\na { color:pink }\n"
+    }, {
+        "title": "#always-single-line",
+        "code": ""
+    }]
+}, {
+    "name": "declaration-colon-space-before",
+    "sub": ["\"always\"", "\"never\""],
+    "code": [{
+        "title": "#always",
+        "code": "a { color: pink }\na { color:pink }\na { color : pink }\na { color :pink }\n"
+    }, {
+        "title": "#never",
+        "code": "a { color : pink }\na { color :pink }\na { color: pink }\na { color:pink }\n"
+    }]
+}, {
+    "name": "declaration-empty-line-before",
+    "sub": ["\"always\"", "\"never\""],
+    "code": [{
+        "title": "#always",
+        "code": "a {\n  --foo: pink;\n  top: 5px;\n}\na {\n  bottom: 15px;\n  top: 5px;\n}\na {\n  --foo: pink;\n\n  top: 5px;\n}\na {\n\n  bottom: 15px;\n\n  top: 5px;\n}\n"
+    }, {
+        "title": "#never",
+        "code": "a {\n  --foo: pink;\n\n  bottom: 15px;\n}\na {\n\n  bottom: 15px;\n\n  top: 5px;\n}\na {\n  --foo: pink;\n  bottom: 15px;\n}\na {\n  bottom: 15px;\n  top: 5px;\n}\n"
+    }]
+}, {
+    "name": "declaration-no-important",
+    "sub": "",
+    "code": []
+}, {
+    "name": "declaration-property-unit-blacklist",
+    "sub": "",
+    "code": []
+}, {
+    "name": "declaration-property-unit-whitelist",
+    "sub": "",
+    "code": []
+}, {
+    "name": "declaration-property-value-blacklist",
+    "sub": "",
+    "code": []
+}, {
+    "name": "declaration-property-value-whitelist",
+    "sub": "",
+    "code": []
+}, {
+    "name": "font-family-name-quotes",
+    "sub": ["\"always-where-required\"", "\"always-where-recommended\"", "\"always-unless-keyword\""],
+    "code": [{
+        "title": "#always-where-required",
+        "code": ""
+    }, {
+        "title": "#always-where-recommended",
+        "code": ""
+    }, {
+        "title": "#always-unless-keyword",
+        "code": ""
+    }]
+}, {
+    "name": "font-family-no-duplicate-names",
+    "sub": "",
+    "code": []
+}, {
+    "name": "font-weight-notation",
+    "sub": ["\"numeric\"", "\"named-where-possible\""],
+    "code": [{
+        "title": "#numeric",
+        "code": "font-weighta { font-weight: bold; }\na { font: italic normal 20px; }\na { font-weight: 700; }\na { font: italic 900 20px; }\n"
+    }, {
+        "title": "#named-where-possible",
+        "code": ""
+    }]
+}, {
+    "name": "function-blacklist",
+    "sub": ["[\"array\", \"of\", \"unprefixed\", \"functions\" or \"regex\"]", "\"function\"", "\"/regex/\""],
+    "code": [{
+        "title": "#function",
+        "code": ""
+    }]
+}, {
+    "name": "function-calc-no-unspaced-operator",
+    "sub": "",
+    "code": []
+}, {
+    "name": "function-comma-newline-after",
+    "sub": ["\"always\"", "\"always-multi-line\"", "\"never-multi-line\""],
+    "code": [{
+        "title": "#always",
+        "code": "a { transform: translate(1,1) }\na { transform: translate(1 ,1) }\na { transform: translate(1\n  ,1) }\na {\n  transform: translate(1,\n    1)\n}\n"
+    }, {
+        "title": "#always-multi-line",
+        "code": ""
+    }, {
+        "title": "#never-multi-line",
+        "code": ""
+    }]
+}, {
+    "name": "function-comma-newline-before",
+    "sub": ["\"always\"", "\"always-multi-line\"", "\"never-multi-line\""],
+    "code": [{
+        "title": "#always",
+        "code": "a { transform: translate(1,1) }\na { transform: translate(1 ,1) }\na { transform: translate(1,\n  1) }\na {\n  transform: translate(1\n    ,1)\n}\na {\n  transform: translate(1\n    , 1)\n}\n"
+    }, {
+        "title": "#always-multi-line",
+        "code": ""
+    }, {
+        "title": "#never-multi-line",
+        "code": ""
+    }]
+}, {
+    "name": "function-comma-space-after",
+    "sub": ["\"always\"", "\"never\"", "\"always-single-line\"", "\"never-single-line\""],
+    "code": [{
+        "title": "#always",
+        "code": "a { transform: translate(1,1) }\na { transform: translate(1 ,1) }\na { transform: translate(1, 1) }\na { transform: translate(1 , 1) }\n"
+    }, {
+        "title": "#never",
+        "code": "a { transform: translate(1, 1) }\na { transform: translate(1 , 1) }\na { transform: translate(1,1) }\na { transform: translate(1 ,1) }\n"
+    }, {
+        "title": "#always-single-line",
+        "code": ""
+    }, {
+        "title": "#never-single-line",
+        "code": ""
+    }]
+}, {
+    "name": "function-comma-space-before",
+    "sub": ["\"always\"", "\"never\"", "\"always-single-line\"", "\"never-single-line\""],
+    "code": [{
+        "title": "#always",
+        "code": "a { transform: translate(1,1) }\na { transform: translate(1, 1) }\na { transform: translate(1 ,1) }\na { transform: translate(1 , 1) }\n"
+    }, {
+        "title": "#never",
+        "code": "a { transform: translate(1 ,1) }\na { transform: translate(1 , 1) }\na { transform: translate(1,1) }\na { transform: translate(1, 1) }\n"
+    }, {
+        "title": "#always-single-line",
+        "code": ""
+    }, {
+        "title": "#never-single-line",
+        "code": ""
+    }]
+}, {
+    "name": "function-linear-gradient-no-nonstandard-direction",
+    "sub": "",
+    "code": []
+}, {
+    "name": "function-max-empty-lines",
+    "sub": "",
+    "code": []
+}, {
+    "name": "function-name-case",
+    "sub": ["\"lower\"", "\"upper\""],
+    "code": [{
+        "title": "#lower",
+        "code": "a {\n  width: Calc(5% - 10em);\n}\na {\n  width: cAlC(5% - 10em);\n}\na {\n  width: CALC(5% - 10em);\n}\na {\n  background: -WEBKIT-RADIAL-GRADIENT(red, green, blue);\n}\na {\n  width: calc(5% - 10em);\n}\na {\n  background: -webkit-radial-gradient(red, green, blue);\n}\n"
+    }, {
+        "title": "#upper",
+        "code": "a {\n  width: Calc(5% - 10em);\n}\na {\n  width: cAlC(5% - 10em);\n}\na {\n  width: calc(5% - 10em);\n}\na {\n  background: -webkit-radial-gradient(red, green, blue);\n}\na {\n  width: CALC(5% - 10em);\n}\na {\n  background: -WEBKIT-RADIAL-GRADIENT(red, green, blue);\n}\n"
+    }]
+}, {
+    "name": "function-parentheses-newline-inside",
+    "sub": ["\"always\"", "\"always-multi-line\"", "\"never-multi-line\""],
+    "code": [{
+        "title": "#always",
+        "code": "a { transform: translate(1, 1); }\na { transform: translate(1,\n  1\n  ); }\na {\n  transform: translate(\n    1, 1\n  );\n}\na {\n  transform: translate(\n    1,\n    1\n  );\n}\n"
+    }, {
+        "title": "#always-multi-line",
+        "code": ""
+    }, {
+        "title": "#never-multi-line",
+        "code": ""
+    }]
+}, {
+    "name": "function-parentheses-space-inside",
+    "sub": ["\"always\"", "\"never\"", "\"always-single-line\"", "\"never-single-line\""],
+    "code": [{
+        "title": "#always",
+        "code": "a { transform: translate(1, 1); }\na { transform: translate(1, 1 ); }\na { transform: translate( 1, 1 ); }\n"
+    }, {
+        "title": "#never",
+        "code": "a { transform: translate( 1, 1 ); }\na { transform: translate(1, 1 ); }\na { transform: translate(1, 1); }\n"
+    }, {
+        "title": "#always-single-line",
+        "code": ""
+    }, {
+        "title": "#never-single-line",
+        "code": ""
+    }]
+}, {
+    "name": "function-url-data-uris",
+    "sub": ["\"always\"", "\"never\""],
+    "code": [{
+        "title": "#always",
+        "code": "a { \n  background-image: url(image.gif) \n} \n@font-face { \n  font-family: 'foo'; \n  src: url(foo.ttf); \n}\na {\n  background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=')\n}\n@font-face { \n  font-family: 'foo'; \n  src: url(data:font/ttf;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=); \n}\n"
+    }, {
+        "title": "#never",
+        "code": "a {\n  background-image: url('data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=')\n}\n@font-face { \n  font-family: 'foo'; \n  src: url(data:font/ttf;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=); \n}\na {\n  background-image: url(image.gif) \n}\n@font-face { \n  font-family: 'foo'; \n  src: url(foo.ttf); \n}\n"
+    }]
+}, {
+    "name": "function-url-no-scheme-relative",
+    "sub": "",
+    "code": []
+}, {
+    "name": "function-url-quotes",
+    "sub": ["\"always\"", "\"never\""],
+    "code": [{
+        "title": "#always",
+        "code": "@import url(foo.css);\n@document domain(http://www.w3.org/);\n@font-face { font-family: 'foo'; src: url(foo.ttf); }\n@-moz-document url-prefix() {}\na { background: url('x.jpg'); }\n@import url(\"foo.css\");\n@document domain('http://www.w3.org/');\n@font-face { font-family: \"foo\"; src: url(\"foo.ttf\"); }\n@-moz-document url-prefix('') {}\n"
+    }, {
+        "title": "#never",
+        "code": "a { background: url('x.jpg'); }\n@import url(\"foo.css\");\n@font-face { font-family: \"foo\"; src: url('foo.ttf'); }\na { background: url(x.jpg); }\n@import url(foo.css);\n@font-face { font-family: 'foo'; src: url(foo.ttf); }\n"
+    }]
+}, {
+    "name": "function-url-scheme-whitelist",
+    "sub": ["[\"array\", \"of\", \"schemes\"]", "\"scheme\""],
+    "code": [{
+        "title": "#scheme",
+        "code": ""
+    }]
+}, {
+    "name": "function-whitelist",
+    "sub": ["[\"array\", \"of\", \"unprefixed\", \"functions\" or \"regex\"]", "\"function\"", "\"/regex/\""],
+    "code": [{
+        "title": "#function",
+        "code": ""
+    }]
+}, {
+    "name": "function-whitespace-after",
+    "sub": ["\"always\"", "\"never\""],
+    "code": [{
+        "title": "#always",
+        "code": "a { transform: translate(1, 1)scale(3); }\na { transform: translate(1, 1) scale(3); }\na { transform: translate(1, 1)     scale(3); }\na {\n  transform:\n    translate(1, 1)\n    scale(3);\n}\n/* notice the two closing parentheses without a space between */\na { top: calc(1 * (1 + 3)); }\n/* notice the ), with no space after the closing parenthesis */\na { padding: calc(1 * 2px), calc(2 * 5px); }\n/* notice the )}, with no space after the closing parenthesis */\na {\n  max-height: #{($line-height) * ($lines-to-show)}em;\n}\n/* notice the )}, with no space after the closing parenthesis */\na {\n  max-height: ((@line-height) * (@lines-to-show))em;\n}\n"
+    }, {
+        "title": "#never",
+        "code": "a { transform: translate(1, 1) scale(3); }\na { transform: translate(1, 1)scale(3); }\n"
+    }]
+}, {
+    "name": "indentation",
+    "sub": "",
+    "code": []
+}, {
+    "name": "keyframe-declaration-no-important",
+    "sub": "",
+    "code": []
+}, {
+    "name": "length-zero-no-unit",
+    "sub": "",
+    "code": []
+}, {
+    "name": "max-empty-lines",
+    "sub": "",
+    "code": []
+}, {
+    "name": "max-line-length",
+    "sub": "",
+    "code": []
+}, {
+    "name": "max-nesting-depth",
+    "sub": "",
+    "code": []
+}, {
+    "name": "media-feature-colon-space-after",
+    "sub": ["\"always\"", "\"never\""],
+    "code": [{
+        "title": "#always",
+        "code": "@media (max-width:600px) {}\n@media (max-width :600px) {}\n@media (max-width: 600px) {}\n@media (max-width : 600px) {}\n"
+    }, {
+        "title": "#never",
+        "code": "@media (max-width: 600px) {}\n@media (max-width : 600px) {}\n@media (max-width:600px) {}\n@media (max-width :600px) {}\n"
+    }]
+}, {
+    "name": "media-feature-colon-space-before",
+    "sub": ["\"always\"", "\"never\""],
+    "code": [{
+        "title": "#always",
+        "code": "@media (max-width:600px) {}\n@media (max-width: 600px) {}\n@media (max-width :600px) {}\n@media (max-width : 600px) {}\n"
+    }, {
+        "title": "#never",
+        "code": "@media (max-width :600px) {}\n@media (max-width : 600px) {}\n@media (max-width:600px) {}\n@media (max-width: 600px) {}\n"
+    }]
+}, {
+    "name": "media-feature-name-blacklist",
+    "sub": ["[\"array\", \"of\", \"unprefixed\", \"media-features\" or \"regex\"]", "\"media-feature\"", "/regex/"],
+    "code": [{
+        "title": "#media-feature",
+        "code": ""
+    }]
+}, {
+    "name": "media-feature-name-case",
+    "sub": ["\"lower\"", "\"upper\""],
+    "code": [{
+        "title": "#lower",
+        "code": "@media (MIN-WIDTH: 700px) {}\n@media not all and (MONOCHROME) {}\n@media (min-width: 700px) and (ORIENTATION: landscape) {}\n@media (min-width: 700px) {}\n@media not all and (monochrome) {}\n@media (min-width: 700px) and (orientation: landscape) {}\n"
+    }, {
+        "title": "#upper",
+        "code": "@media (min-width: 700px) {}\n@media not all and (monochrome) {}\n@media (MIN-WIDTH: 700px) and (orientation: landscape) {}\n@media (MIN-WIDTH: 700px) {}\n@media not all and (MONOCHROME) {}\n@media (MIN-WIDTH: 700px) and (ORIENTATION: landscape) {}\n"
+    }]
+}, {
+    "name": "media-feature-name-no-unknown",
+    "sub": "",
+    "code": []
+}, {
+    "name": "media-feature-name-no-vendor-prefix",
+    "sub": "",
+    "code": []
+}, {
+    "name": "media-feature-name-whitelist",
+    "sub": ["[\"array\", \"of\", \"unprefixed\", \"media-features\" or \"regex\"]", "\"media-feature\"", "/regex/"],
+    "code": [{
+        "title": "#media-feature",
+        "code": ""
+    }]
+}, {
+    "name": "media-feature-no-missing-punctuation",
+    "sub": "",
+    "code": []
+}, {
+    "name": "media-feature-parentheses-space-inside",
+    "sub": ["\"always\"", "\"never\""],
+    "code": [{
+        "title": "#always",
+        "code": "@media (max-width: 300px) {}\n@media (max-width: 300px ) {}\n@media ( max-width: 300px ) {}\n"
+    }, {
+        "title": "#never",
+        "code": "@media ( max-width: 300px ) {}\n@media ( max-width: 300px) {}\n@media (max-width: 300px) {}\n"
+    }]
+}, {
+    "name": "media-feature-range-operator-space-after",
+    "sub": ["\"always\"", "\"never\""],
+    "code": [{
+        "title": "#always",
+        "code": "@media (width>=600px) {}\n@media (width >=600px) {}\n@media (width>= 600px) {}\n@media (width >= 600px) {}\n"
+    }, {
+        "title": "#never",
+        "code": "@media (width>= 600px) {}\n@media (width >= 600px) {}\n@media (width>=600px) {}\n@media (width >=600px) {}\n"
+    }]
+}, {
+    "name": "media-feature-range-operator-space-before",
+    "sub": ["\"always\"", "\"never\""],
+    "code": [{
+        "title": "#always",
+        "code": "@media (width>=600px) {}\n@media (width>= 600px) {}\n@media (width >=600px) {}\n@media (width >= 600px) {}\n"
+    }, {
+        "title": "#never",
+        "code": "@media (width >=600px) {}\n@media (width >= 600px) {}\n@media (width>=600px) {}\n@media (width>= 600px) {}\n"
+    }]
+}, {
+    "name": "media-query-list-comma-newline-after",
+    "sub": ["\"always\"", "\"always-multi-line\"", "\"never-multi-line\""],
+    "code": [{
+        "title": "#always",
+        "code": "@media screen and (color), projection and (color) {}\n@media screen and (color)\n, projection and (color) {}\n@media screen and (color),\nprojection and (color) {}\n@media screen and (color)\n,\nprojection and (color) {}\n"
+    }, {
+        "title": "#always-multi-line",
+        "code": ""
+    }, {
+        "title": "#never-multi-line",
+        "code": ""
+    }]
+}, {
+    "name": "media-query-list-comma-newline-before",
+    "sub": ["\"always\"", "\"always-multi-line\"", "\"never-multi-line\""],
+    "code": [{
+        "title": "#always",
+        "code": "@media screen and (color), projection and (color) {}\n@media screen and (color),\nprojection and (color) {}\n@media screen and (color)\n,projection and (color) {}\n@media screen and (color)\n,\nprojection and (color) {}\n"
+    }, {
+        "title": "#always-multi-line",
+        "code": ""
+    }, {
+        "title": "#never-multi-line",
+        "code": ""
+    }]
+}, {
+    "name": "media-query-list-comma-space-after",
+    "sub": ["\"always\"", "\"never\"", "\"always-single-line\"", "\"never-single-line\""],
+    "code": [{
+        "title": "#always",
+        "code": "@media screen and (color),projection and (color) {}\n@media screen and (color)\n,projection and (color) {}\n@media screen and (color), projection and (color) {}\n@media screen and (color)\n, projection and (color) {}\n"
+    }, {
+        "title": "#never",
+        "code": "@media screen and (color), projection and (color) {}\n@media screen and (color)\n, projection and (color) {}\n@media screen and (color),projection and (color) {}\n@media screen and (color)\n,projection and (color) {}\n"
+    }, {
+        "title": "#always-single-line",
+        "code": ""
+    }, {
+        "title": "#never-single-line",
+        "code": ""
+    }]
+}, {
+    "name": "media-query-list-comma-space-before",
+    "sub": ["\"always\"", "\"never\"", "\"always-single-line\"", "\"never-single-line\""],
+    "code": [{
+        "title": "#always",
+        "code": "@media screen and (color),projection and (color) {}\n@media screen and (color)\n,projection and (color) {}\n@media screen and (color) ,projection and (color) {}\n@media screen and (color) ,\nprojection and (color) {}\n"
+    }, {
+        "title": "#never",
+        "code": "@media screen and (color) ,projection and (color) {}\n@media screen and (color)\n, projection and (color) {}\n@media screen and (color),projection and (color) {}\n@media screen and (color),\nprojection and (color) {}\n"
+    }, {
+        "title": "#always-single-line",
+        "code": ""
+    }, {
+        "title": "#never-single-line",
+        "code": ""
+    }]
+}, {
+    "name": "no-browser-hacks",
+    "sub": "",
+    "code": []
+}, {
+    "name": "no-descending-specificity",
+    "sub": "",
+    "code": []
+}, {
+    "name": "no-duplicate-selectors",
+    "sub": "",
+    "code": []
+}, {
+    "name": "no-empty-source",
+    "sub": "",
+    "code": []
+}, {
+    "name": "no-eol-whitespace",
+    "sub": "",
+    "code": []
+}, {
+    "name": "no-extra-semicolons",
+    "sub": "",
+    "code": []
+}, {
+    "name": "no-indistinguishable-colors",
+    "sub": "",
+    "code": []
+}, {
+    "name": "no-invalid-double-slash-comments",
+    "sub": "",
+    "code": []
+}, {
+    "name": "no-missing-end-of-source-newline",
+    "sub": "",
+    "code": []
+}, {
+    "name": "no-unknown-animations",
+    "sub": "",
+    "code": []
+}, {
+    "name": "no-unsupported-browser-features",
+    "sub": "",
+    "code": []
+}, {
+    "name": "number-leading-zero",
+    "sub": ["\"always\"", "\"never\""],
+    "code": [{
+        "title": "#always",
+        "code": "a { line-height: .5; }\na { transform: translate(2px, .4px); }\na { line-height: 0.5; }\na { transform: translate(2px, 0.4px); }\n"
+    }, {
+        "title": "#never",
+        "code": "a { line-height: 0.5; }\na { transform: translate(2px, 0.4px); }\na { line-height: .5; }\na { transform: translate(2px, .4px); }\n"
+    }]
+}, {
+    "name": "number-max-precision",
+    "sub": "",
+    "code": []
+}, {
+    "name": "number-no-trailing-zeros",
+    "sub": "",
+    "code": []
+}, {
+    "name": "property-blacklist",
+    "sub": ["[\"array\", \"of\", \"unprefixed\", \"properties\" or \"regex\"]", "\"property\"", "\"/regex/\""],
+    "code": [{
+        "title": "#property",
+        "code": ""
+    }]
+}, {
+    "name": "property-case",
+    "sub": ["\"lower\"", "\"upper\""],
+    "code": [{
+        "title": "#lower",
+        "code": "a {\n  Width: 1px\n}\na {\n  WIDTH: 1px\n}\na {\n  widtH: 1px\n}\na {\n  border-Radius: 5px;\n}\na { \n  -WEBKIT-animation-duration: 3s; \n}\n@media screen and (orientation: landscape) { \n  WiDtH: 500px; \n}\na {\n  width: 1px\n}\na {\n  border-radius: 5px;\n}\na { \n  -webkit-animation-duration: 3s; \n}\n@media screen and (orientation: landscape) { \n  width: 500px; \n}\n"
+    }, {
+        "title": "#upper",
+        "code": "a {\n  Width: 1px\n}\na {\n  width: 1px\n}\na {\n  widtH: 1px\n}\na {\n  border-Radius: 5px;\n}\na { \n  -WEBKIT-animation-duration: 3s; \n}\n@media screen and (orientation: landscape) { \n  WiDtH: 500px; \n}\na {\n  WIDTH: 1px\n}\na {\n  BORDER-RADIUS: 5px;\n}\na { \n  -WEBKIT-ANIMATION-DURATION: 3s; \n}\n@media screen and (orientation: landscape) { \n  WIDTH: 500px; \n}\n"
+    }]
+}, {
+    "name": "property-no-unknown",
+    "sub": "",
+    "code": []
+}, {
+    "name": "property-no-vendor-prefix",
+    "sub": "",
+    "code": []
+}, {
+    "name": "property-whitelist",
+    "sub": ["[\"array\", \"of\", \"unprefixed\", \"properties\" or \"regex\"]", "\"property\"", "\"/regex/\""],
+    "code": [{
+        "title": "#property",
+        "code": ""
+    }]
+}, {
+    "name": "root-no-standard-properties",
+    "sub": "",
+    "code": []
+}, {
+    "name": "rule-empty-line-before",
+    "sub": ["\"always\"", "\"never\"", "\"always-multi-line\"", "\"never-multi-line\""],
+    "code": [{
+        "title": "#always",
+        "code": "a {} b {}\na {}\nb {}\na {}\n\nb {}\n"
+    }, {
+        "title": "#never",
+        "code": "a {}\n\nb {}\na {} b {}\na {}\nb {}\n"
+    }, {
+        "title": "#always-multi-line",
+        "code": ""
+    }, {
+        "title": "#never-multi-line",
+        "code": ""
+    }]
+}, {
+    "name": "rule-nested-empty-line-before",
+    "sub": ["\"always\"", "\"never\"", "\"always-multi-line\"", "\"never-multi-line\""],
+    "code": [{
+        "title": "#always",
+        "code": "@media { a {} }\n@media {\n  a {}\n}\n@media {\n\n  a {}\n}\n"
+    }, {
+        "title": "#never",
+        "code": "@media { a {} }\n@media {\n\n  a {}\n}\n@media {\n  a {}\n}\n"
+    }, {
+        "title": "#always-multi-line",
+        "code": ""
+    }, {
+        "title": "#never-multi-line",
+        "code": ""
+    }]
+}, {
+    "name": "rule-non-nested-empty-line-before",
+    "sub": ["\"always\"", "\"never\"", "\"always-multi-line\"", "\"never-multi-line\""],
+    "code": [{
+        "title": "#always",
+        "code": "a {} b {}\na {}\nb {}\na {}\n\nb {}\n"
+    }, {
+        "title": "#never",
+        "code": "a {}\n\nb {}\na {} b {}\na {}\nb {}\n"
+    }, {
+        "title": "#always-multi-line",
+        "code": ""
+    }, {
+        "title": "#never-multi-line",
+        "code": ""
+    }]
+}, {
+    "name": "selector-attribute-brackets-space-inside",
+    "sub": ["\"always\"", "\"never\""],
+    "code": [{
+        "title": "#always",
+        "code": "[target] {}\n[ target] {}\n[target ] {}\n[target=_blank] {}\n[ target=_blank] {}\n[target=_blank ] {}\n[ target ] {}\n[ target=_blank ] {}\n"
+    }, {
+        "title": "#never",
+        "code": "[ target] {}\n[target ] {}\n[ target ] {}\n[ target=_blank] {}\n[target=_blank ] {}\n[ target=_blank ] {}\n[target] {}\n[target=_blank] {}\n"
+    }]
+}, {
+    "name": "selector-attribute-operator-blacklist",
+    "sub": ["[\"array\", \"of\", \"operators\"]", "\"operator\""],
+    "code": [{
+        "title": "#operator",
+        "code": ""
+    }]
+}, {
+    "name": "selector-attribute-operator-space-after",
+    "sub": ["\"always\"", "\"never\""],
+    "code": [{
+        "title": "#always",
+        "code": "[target=_blank] {}\n[target =_blank] {}\n[target='_blank'] {}\n[target=\"_blank\"] {}\n[target ='_blank'] {}\n[target =\"_blank\"] {}\n[target] {}\n[target= _blank] {}\n[target= '_blank'] {}\n[target= \"_blank\"] {}\n[target = _blank] {}\n[target = '_blank'] {}\n[target = \"_blank\"] {}\n"
+    }, {
+        "title": "#never",
+        "code": "[target= _blank] {}\n[target = _blank] {}\n[target= '_blank'] {}\n[target= \"_blank\"] {}\n[target = '_blank'] {}\n[target = \"_blank\"] {}\n[target] {}\n[target=_blank] {}\n[target='_blank'] {}\n[target=\"_blank\"] {}\n[target =_blank] {}\n[target ='_blank'] {}\n[target =\"_blank\"] {}\n"
+    }]
+}, {
+    "name": "selector-attribute-operator-space-before",
+    "sub": ["\"always\"", "\"never\""],
+    "code": [{
+        "title": "#always",
+        "code": "[target=_blank] {}\n[target= _blank] {}\n[target='_blank'] {}\n[target=\"_blank\"] {}\n[target= '_blank'] {}\n[target= \"_blank\"] {}\n[target] {}\n[target =_blank] {}\n[target ='_blank'] {}\n[target =\"_blank\"] {}\n[target = _blank] {}\n[target = '_blank'] {}\n[target = \"_blank\"] {}\n"
+    }, {
+        "title": "#never",
+        "code": "[target =_blank] {}\n[target = _blank] {}\n[target ='_blank'] {}\n[target =\"_blank\"] {}\n[target = '_blank'] {}\n[target = \"_blank\"] {}\n[target] {}\n[target=_blank] {}\n[target='_blank'] {}\n[target=\"_blank\"] {}\n[target= _blank] {}\n[target= '_blank'] {}\n[target= \"_blank\"] {}\n"
+    }]
+}, {
+    "name": "selector-attribute-operator-whitelist",
+    "sub": ["[\"array\", \"of\", \"operators\"]", "\"operator\""],
+    "code": [{
+        "title": "#operator",
+        "code": ""
+    }]
+}, {
+    "name": "selector-attribute-quotes",
+    "sub": ["\"always\"", "\"never\""],
+    "code": [{
+        "title": "#always",
+        "code": "[title=flower] {}\n[class^=top] {}\n[title] {}\n[target=\"_blank\"] {}\n[class|=\"top\"] {}\n[title~='text'] {}\n[data-attribute='component'] {}\n"
+    }, {
+        "title": "#never",
+        "code": "[target=\"_blank\"] {}\n[class|=\"top\"] {}\n[title~='text'] {}\n[data-attribute='component'] {}\n[title] {}\n[title=flower] {}\n[class^=top] {}\n"
+    }]
+}, {
+    "name": "selector-class-pattern",
+    "sub": ["regex", "string"],
+    "code": [{
+        "title": "#ege",
+        "code": ""
+    }, {
+        "title": "#trin",
+        "code": ""
+    }]
+}, {
+    "name": "selector-combinator-space-after",
+    "sub": ["\"always\"", "\"never\""],
+    "code": [{
+        "title": "#always",
+        "code": "a +b { color: pink; }\na>b { color: pink; }\na + b { color: pink; }\na> b { color: pink; }\n"
+    }, {
+        "title": "#never",
+        "code": "a + b { color: pink; }\na> b { color: pink; }\na +b { color: pink; }\na>b { color: pink; }\n"
+    }]
+}, {
+    "name": "selector-combinator-space-before",
+    "sub": ["\"always\"", "\"never\""],
+    "code": [{
+        "title": "#always",
+        "code": "a+ b { color: pink; }\na>b { color: pink; }\na + b { color: pink; }\na >b { color: pink; }\n"
+    }, {
+        "title": "#never",
+        "code": "a + b { color: pink; }\na >b { color: pink; }\na+ b { color: pink; }\na>b { color: pink; }\n"
+    }]
+}, {
+    "name": "selector-descendant-combinator-no-non-space",
+    "sub": "",
+    "code": []
+}, {
+    "name": "selector-id-pattern",
+    "sub": ["regex", "string"],
+    "code": [{
+        "title": "#ege",
+        "code": ""
+    }, {
+        "title": "#trin",
+        "code": ""
+    }]
+}, {
+    "name": "selector-list-comma-newline-after",
+    "sub": ["\"always\"", "\"always-multi-line\"", "\"never-multi-line\""],
+    "code": [{
+        "title": "#always",
+        "code": "a, b { color: pink; }\na\n, b { color: pink; }\na,\nb { color: pink; }\na\n,\nb { color: pink; }\n"
+    }, {
+        "title": "#always-multi-line",
+        "code": ""
+    }, {
+        "title": "#never-multi-line",
+        "code": ""
+    }]
+}, {
+    "name": "selector-list-comma-newline-before",
+    "sub": ["\"always\"", "\"always-multi-line\"", "\"never-multi-line\""],
+    "code": [{
+        "title": "#always",
+        "code": "a, b { color: pink; }\na,\nb { color: pink; }\na\n, b { color: pink; }\na\n,b { color: pink; }\n"
+    }, {
+        "title": "#always-multi-line",
+        "code": ""
+    }, {
+        "title": "#never-multi-line",
+        "code": ""
+    }]
+}, {
+    "name": "selector-list-comma-space-after",
+    "sub": ["\"always\"", "\"never\"", "\"always-single-line\"", "\"never-single-line\""],
+    "code": [{
+        "title": "#always",
+        "code": "a,b { color: pink; }\na ,b { color: pink; }\na, b { color: pink; }\na , b { color: pink; }\n"
+    }, {
+        "title": "#never",
+        "code": "a, b { color: pink; }\na , b { color: pink; }\na,b { color: pink; }\na ,b { color: pink; }\n"
+    }, {
+        "title": "#always-single-line",
+        "code": ""
+    }, {
+        "title": "#never-single-line",
+        "code": ""
+    }]
+}, {
+    "name": "selector-list-comma-space-before",
+    "sub": ["\"always\"", "\"never\"", "\"always-single-line\"", "\"never-single-line\""],
+    "code": [{
+        "title": "#always",
+        "code": "a,b { color: pink; }\na, b { color: pink; }\na ,b { color: pink; }\na , b { color: pink; }\n"
+    }, {
+        "title": "#never",
+        "code": "a ,b { color: pink; }\na , b { color: pink; }\na,b { color: pink; }\na, b { color: pink; }\n"
+    }, {
+        "title": "#always-single-line",
+        "code": ""
+    }, {
+        "title": "#never-single-line",
+        "code": ""
+    }]
+}, {
+    "name": "selector-max-compound-selectors",
+    "sub": "",
+    "code": []
+}, {
+    "name": "selector-max-empty-lines",
+    "sub": "",
+    "code": []
+}, {
+    "name": "selector-max-specificity",
+    "sub": "",
+    "code": []
+}, {
+    "name": "selector-nested-pattern",
+    "sub": ["regex", "string"],
+    "code": [{
+        "title": "#ege",
+        "code": ""
+    }, {
+        "title": "#trin",
+        "code": ""
+    }]
+}, {
+    "name": "selector-no-attribute",
+    "sub": "",
+    "code": []
+}, {
+    "name": "selector-no-empty",
+    "sub": "",
+    "code": []
+}, {
+    "name": "selector-no-combinator",
+    "sub": "",
+    "code": []
+}, {
+    "name": "selector-no-id",
+    "sub": "",
+    "code": []
+}, {
+    "name": "selector-no-qualifying-type",
+    "sub": "",
+    "code": []
+}, {
+    "name": "selector-no-type",
+    "sub": "",
+    "code": []
+}, {
+    "name": "selector-no-universal",
+    "sub": "",
+    "code": []
+}, {
+    "name": "selector-no-vendor-prefix",
+    "sub": "",
+    "code": []
+}, {
+    "name": "selector-pseudo-class-blacklist",
+    "sub": ["[\"array\", \"of\", \"unprefixed\", \"pseudo-classes\" or \"regex\"]", "\"pseudo-class\"", "/regex/"],
+    "code": [{
+        "title": "#pseudo-class",
+        "code": ""
+    }]
+}, {
+    "name": "selector-pseudo-class-case",
+    "sub": ["\"lower\"", "\"upper\""],
+    "code": [{
+        "title": "#lower",
+        "code": "a:Hover {}\na:hOvEr {}\na:HOVER {}\n:ROOT {}\n:-MS-INPUT-PLACEHOLDER {}\na:hover {}\n:root {}\n:-ms-input-placeholder {}\n"
+    }, {
+        "title": "#upper",
+        "code": "a:Hover {}\na:hOvEr {}\na:hover {}\n:root {}\n:-ms-input-placeholder {}\na:HOVER {}\n:ROOT {}\n:-MS-INPUT-PLACEHOLDER {}\n"
+    }]
+}, {
+    "name": "selector-pseudo-class-no-unknown",
+    "sub": "",
+    "code": []
+}, {
+    "name": "selector-pseudo-class-parentheses-space-inside",
+    "sub": ["\"always\"", "\"never\""],
+    "code": [{
+        "title": "#always",
+        "code": "input:not([type=\"submit\"]) {}\ninput:not([type=\"submit\"] ) {}\ninput:not( [type=\"submit\"] ) {}\n"
+    }, {
+        "title": "#never",
+        "code": "input:not( [type=\"submit\"] ) {}\ninput:not( [type=\"submit\"]) {}\ninput:not([type=\"submit\"]) {}\n"
+    }]
+}, {
+    "name": "selector-pseudo-class-whitelist",
+    "sub": ["[\"array\", \"of\", \"unprefixed\", \"pseudo-classes\" or \"regex\"]", "\"pseudo-class\"", "/regex/"],
+    "code": [{
+        "title": "#pseudo-class",
+        "code": ""
+    }]
+}, {
+    "name": "selector-pseudo-element-case",
+    "sub": ["\"lower\"", "\"upper\""],
+    "code": [{
+        "title": "#lower",
+        "code": "a:Before {}\na:bEfOrE {}\na:BEFORE {}\na::Before {}\na::bEfOrE {}\na::BEFORE {}\ninput::-MOZ-PLACEHOLDER {}\na:before {}\na::before {}\ninput::-moz-placeholder {}\n"
+    }, {
+        "title": "#upper",
+        "code": "a:Before {}\na:bEfOrE {}\na:BEFORE {}\na::Before {}\na::bEfOrE {}\na::before {}\ninput::-moz-placeholder {}\na:BEFORE {}\na::BEFORE {}\ninput::-MOZ-PLACEHOLDER {}\n"
+    }]
+}, {
+    "name": "selector-pseudo-element-colon-notation",
+    "sub": ["\"single\"", "\"double\""],
+    "code": [{
+        "title": "#single",
+        "code": "a::before { color: pink; }\na::after { color: pink; }\na::first-letter { color: pink; }\na::first-line { color: pink; }\na:before { color: pink; }\na:after { color: pink; }\na:first-letter { color: pink; }\na:first-line { color: pink; }\ninput::placeholder { color: pink; }\nli::marker { font-variant-numeric: tabular-nums; }\n"
+    }, {
+        "title": "#double",
+        "code": "a:before { color: pink; }\na:after { color: pink; }\na:first-letter { color: pink; }\na:first-line { color: pink; }\na::before { color: pink; }\na::after { color: pink; }\na::first-letter { color: pink; }\na::first-line { color: pink; }\ninput::placeholder { color: pink; }\nli::marker { font-variant-numeric: tabular-nums; }\n"
+    }]
+}, {
+    "name": "selector-pseudo-element-no-unknown",
+    "sub": "",
+    "code": []
+}, {
+    "name": "selector-root-no-composition",
+    "sub": "",
+    "code": []
+}, {
+    "name": "selector-type-case",
+    "sub": ["\"lower\"", "\"upper\""],
+    "code": [{
+        "title": "#lower",
+        "code": "A {}\nLI {}\na {}\nli {}\n"
+    }, {
+        "title": "#upper",
+        "code": "a {}\nli {}\nA {}\nLI {}\n"
+    }]
+}, {
+    "name": "selector-type-no-unknown",
+    "sub": "",
+    "code": []
+}, {
+    "name": "shorthand-property-no-redundant-values",
+    "sub": "",
+    "code": []
+}, {
+    "name": "string-no-newline",
+    "sub": "",
+    "code": []
+}, {
+    "name": "string-quotes",
+    "sub": ["\"single\"", "\"double\""],
+    "code": [{
+        "title": "#single",
+        "code": "a { content: \"x\"; }\na[id=\"foo\"] {}\na { content: 'x'; }\na[id='foo'] {}\n"
+    }, {
+        "title": "#double",
+        "code": "a { content: 'x'; }\na[id='foo'] {}\na { content: \"x\"; }\na[id=\"foo\"] {}\n"
+    }]
+}, {
+    "name": "stylelint-disable-reason",
+    "sub": ["\"always-before\"", "\"always-after\""],
+    "code": [{
+        "title": "#always-before",
+        "code": ""
+    }, {
+        "title": "#always-after",
+        "code": ""
+    }]
+}, {
+    "name": "time-min-milliseconds",
+    "sub": "",
+    "code": []
+}, {
+    "name": "time-no-imperceptible",
+    "sub": "",
+    "code": []
+}, {
+    "name": "unit-blacklist",
+    "sub": ["[\"array\", \"of\", \"units\"]", "\"unit\""],
+    "code": [{
+        "title": "#unit",
+        "code": ""
+    }]
+}, {
+    "name": "unit-case",
+    "sub": ["\"lower\"", "\"upper\""],
+    "code": [{
+        "title": "#lower",
+        "code": "a {\n  width: 10PX;\n}\na {\n  width: 10Px;\n}\na {\n  width: 10pX;\n}\na {\n  width: 10PIXEL;\n}\na {\n  width: calc(10PX * 2);\n}\na {\n  width: 10px;\n}\na {\n  width: calc(10px * 2);\n}\n"
+    }, {
+        "title": "#upper",
+        "code": "a {\n  width: 10px;\n}\na {\n  width: 10Px;\n}\na {\n  width: 10pX;\n}\na {\n  width: 10pixel;\n}\na {\n  width: calc(10px * 2);\n}\na {\n  width: 10PX;\n}\na {\n  width: calc(10PX * 2);\n}\n"
+    }]
+}, {
+    "name": "unit-no-unknown",
+    "sub": "",
+    "code": []
+}, {
+    "name": "unit-whitelist",
+    "sub": ["[\"array\", \"of\", \"units\"]", "\"unit\""],
+    "code": [{
+        "title": "#unit",
+        "code": ""
+    }]
+}, {
+    "name": "value-keyword-case",
+    "sub": ["\"lower\"", "\"upper\""],
+    "code": [{
+        "title": "#lower",
+        "code": "a {\n  display: Block;\n}\na {\n  display: bLoCk;\n}\na {\n  display: BLOCK;\n}\na {\n  transition: -WEBKIT-TRANSFORM 2s;\n}\na {\n  display: block;\n}\na {\n  transition: -webkit-transform 2s;\n}\n"
+    }, {
+        "title": "#upper",
+        "code": "a {\n  display: Block;\n}\na {\n  display: bLoCk;\n}\na {\n  display: block;\n}\na {\n  transition: -webkit-transform 2s;\n}\na {\n  display: BLOCK;\n}\na {\n  transition: -WEBKIT-TRANSFORM 2s;\n}\n"
+    }]
+}, {
+    "name": "value-list-comma-newline-after",
+    "sub": ["\"always\"", "\"always-multi-line\"", "\"never-multi-line\""],
+    "code": [{
+        "title": "#always",
+        "code": "a { background-size: 0,0; }\na { background-size: 0\n      , 0; }\na { background-size: 0,\n      0; }\n"
+    }, {
+        "title": "#always-multi-line",
+        "code": ""
+    }, {
+        "title": "#never-multi-line",
+        "code": ""
+    }]
+}, {
+    "name": "value-list-comma-newline-before",
+    "sub": ["\"always\"", "\"always-multi-line\"", "\"never-multi-line\""],
+    "code": [{
+        "title": "#always",
+        "code": "a { background-size: 0,0; }\na { background-size: 0,\n      0; }\na { background-size: 0\n      , 0; }\n"
+    }, {
+        "title": "#always-multi-line",
+        "code": ""
+    }, {
+        "title": "#never-multi-line",
+        "code": ""
+    }]
+}, {
+    "name": "value-list-comma-space-after",
+    "sub": ["\"always\"", "\"never\"", "\"always-single-line\"", "\"never-single-line\""],
+    "code": [{
+        "title": "#always",
+        "code": "a { background-size: 0,0; }\na { background-size: 0\n      , 0; }\na { background-size: 0, 0; }\na { background-size: 0\n      , 0; }\n"
+    }, {
+        "title": "#never",
+        "code": "a { background-size: 0, 0; }\na { background-size: 0 ,\n      0; }\na { background-size: 0,0; }\na { background-size: 0\n      ,0; }\n"
+    }, {
+        "title": "#always-single-line",
+        "code": ""
+    }, {
+        "title": "#never-single-line",
+        "code": ""
+    }]
+}, {
+    "name": "value-list-comma-space-before",
+    "sub": ["\"always\"", "\"never\"", "\"always-single-line\"", "\"never-single-line\""],
+    "code": [{
+        "title": "#always",
+        "code": "a { background-size: 0,0; }\na { background-size: 0\n      , 0; }\na { background-size: 0 ,0; }\na { background-size: 0 ,\n      0; }\n"
+    }, {
+        "title": "#never",
+        "code": "a { background-size: 0 ,0; }\na { background-size: 0 ,\n      0; }\na { background-size: 0,0; }\na { background-size: 0,\n      0; }\n"
+    }, {
+        "title": "#always-single-line",
+        "code": ""
+    }, {
+        "title": "#never-single-line",
+        "code": ""
+    }]
+}, {
+    "name": "value-list-max-empty-lines",
+    "sub": "",
+    "code": []
+}, {
+    "name": "value-no-vendor-prefix",
+    "sub": "",
+    "code": []
+}]
