@@ -27,7 +27,7 @@ const Container = () => {
     )
 }
 
-const Card = (props) => {
+const Card = (props, chooseValue) => {
     // let item = props.value
     let data = props.data;
     let value;
@@ -39,17 +39,17 @@ const Card = (props) => {
         value = ["No result"]
     }
 
-    let handleClick = (e) => {
-        console.log(props)
-
-    }
+    console.log(chooseValue)
     return (
-        <div className="card" key={data.id}>
+        <div className="card">
             <div className="card__count">{data.id}</div>
             <div className="card__name">{data.name}</div>
             <ul>
    
-                { typeof value !== 'string' ? value.map((item, i) => <li key={i} onClick={props.pro}>{item}</li>) : <li onClick={props.pro}>{ value }</li>  }
+                { typeof data["sub"] !== "undefined" ? data.code.map((item, i) => <li key={i}>
+                    <div>{item.title}</div>
+                    <div>{item.code}</div>
+                    </li>)  : <li></li>}
             </ul>
         </div>
     )
@@ -97,8 +97,12 @@ class Content extends Component {
         return res;
     } 
 
+    parseValue(arr) {
+        return arr;
+    }
+
     handlerS(e) {
-        console.log(e.target)
+        console.log(e.target, "PROP")
         this.setState({
             currentCard: this.state.currentCard + 1
         })
@@ -113,34 +117,28 @@ class Content extends Component {
             mode: 'cors',
             cache: 'default'
         }
-        // fetch('https://raw.githubusercontent.com/stylelint/stylelint/9c7c38a7785fbfeb96fff1f75b68b5babb960847/lib/rules/index.js', myInit)
-        fetch('https://raw.githubusercontent.com/stylelint/stylelint/9c7c38a7785fbfeb96fff1f75b68b5babb960847/docs/user-guide/example-config.md', myInit)
+        fetch('/message.json')
         .then(res => {
-            return res.text();
+            return res.json();
         })
         .then(gists => {
-            let cut = gists.match(/{([^]*)}/gi)[0];
-            let start = '"rules":';
-            let startcut = cut.indexOf(start) + start.length
-            cut = cut.slice(startcut, cut.length -1 ).split(',');
-            cut = cut.slice(1, cut.length - 1)
-
-            this.setState({ text: this.cuts(cut) })
+            this.setState({ text: this.parseValue(gists) })
+            return gists;
         })
 
 
     }
     render() {
-        console.log(this)
         const func = this.handlerS
+        const chooseValue = this.chooseValue
         const st = this.state;
         const data = st.text.length ? st.text : [{ name: "DATA DONT LOAD"}]
-
+        console.log(chooseValue)
         return (
             <div className="main-content">
                 <button onClick={ this.handlerS }>  CLICK  </button>
                 <ul>
-                    <Card data={data[st.currentCard]} pro={ func }></Card>
+                    <Card data={data[st.currentCard]}></Card>
                 </ul>
                 {/*<Container> 
                     

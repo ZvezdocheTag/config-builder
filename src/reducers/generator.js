@@ -1,4 +1,4 @@
-import { ADD_RULE, REMOVE_RULE, COUNT_CARD, SET_RULE_TAB } from '../actions'
+import { ADD_RULE, REMOVE_RULE, COUNT_CARD, SET_RULE_TAB, GET_DATA } from '../actions'
 
 const initialState = [
         {
@@ -11,8 +11,10 @@ const initialState = [
 
 export default function generator(state = initialState, action) {
     switch(action.type) {
+        case GET_DATA: 
+            return state;
         case ADD_RULE:
-            console.log(action)
+            // console.log(action)
             return [
                 {
                     id: state.reduce((maxId, todo) => (
