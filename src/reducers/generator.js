@@ -14,7 +14,6 @@ export default function generator(state = initialState, action) {
         case GET_DATA: 
             return state;
         case ADD_RULE:
-            // console.log(action)
             return [
                 {
                     id: state.reduce((maxId, todo) => (

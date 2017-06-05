@@ -133,16 +133,13 @@ class Content extends Component {
         const chooseValue = this.chooseValue
         const st = this.state;
         const data = st.text.length ? st.text : [{ name: "DATA DONT LOAD"}]
-        console.log(chooseValue)
+        // console.log(chooseValue)
         return (
             <div className="main-content">
                 <button onClick={ this.handlerS }>  CLICK  </button>
                 <ul>
                     <Card data={data[st.currentCard]}></Card>
                 </ul>
-                {/*<Container> 
-                    
-                </Container> */}
                 <Aside />
             </div>
         );
