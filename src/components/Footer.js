@@ -8,7 +8,7 @@ class Footer extends Component {
     }
 
     showState = () => {
-        console.log(this.props.generator)
+        console.log(this.props, "STATE WITH US")
     }
 
     render() {

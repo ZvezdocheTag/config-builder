@@ -134,6 +134,7 @@ class Content extends Component {
         const st = this.state;
         const data = st.text.length ? st.text : [{ name: "DATA DONT LOAD"}]
         // console.log(chooseValue)
+        console.log(this.props, "STATE WITH US")
         return (
             <div className="main-content">
                 <button onClick={ this.handlerS }>  CLICK  </button>
